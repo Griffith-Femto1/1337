@@ -39,7 +39,7 @@ read -p "Enter the ending port: " endPort
 echo "Scanning $target for open ports from $startPort to $endPort..."
 
 for ((port=$startPort; port<=$endPort; port++)); do
-    (echo >/dev/tcp/$target/$port) &>/dev/null && echo "Port $port is open" || echo "Port $port is>
+    (echo >/dev/tcp/$target/$port) &>/dev/null && echo "Port $port is open" || echo "Port $port is closed"
 done
 
 echo "Scan complete!"
