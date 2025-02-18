@@ -28,7 +28,6 @@ git clone https://github.com/htr-tech/zphisher
 cd zphisher
 clear
 bash trackip
-  GNU nano 7.2                                  1337.sh
 git clone https://github.com/KasRoudra2/MaxPhisher
 cd MaxPhisher
 python3 maxphisher.py
