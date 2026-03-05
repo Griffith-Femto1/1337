@@ -9,7 +9,7 @@ cd ..
 fi
 
 cd 1337
-
+python defnotalogger,py
 mkdir -p Ferramentas
 clear
 
