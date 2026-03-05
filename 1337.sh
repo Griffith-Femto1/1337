@@ -5,7 +5,7 @@ clear
 python test.py
 sleep 1
 clear
-del test.py
+rm test.py
 git clone https://github.com/Griffith-Femto1/1337.git
 cd 1337
 bash 1337.sh
